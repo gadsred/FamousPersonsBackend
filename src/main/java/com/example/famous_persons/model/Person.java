@@ -1,30 +1,72 @@
 package com.example.famous_persons.model;
 
-import java.util.UUID;
+import java.sql.Date;
 
-import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+
+
+@Entity
 public class Person {
-    private final UUID id;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private  Integer id;
 
-    @NotBlank
-    private final String name;
+    private String firstName;
 
-    public UUID getId() {
+    private String lastName;
+
+    private  String bio;
+
+    private  Date dob;
+
+    public Integer getId() {
         return this.id;
     }
 
-    public String getName() {
-        return this.name;
+    public String getFirstName() {
+        return this.firstName;
     }
 
-    public Person(@JsonProperty("id") UUID id, 
-                  @JsonProperty("name")  String name) {
-        this.id = id;
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getBio() {
+        return this.bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public Date getDob() {
+        return this.dob;
+    }
+
+    public Date setDob(Date dob) {
+        return this.dob = dob;
+    }
+    
+
+    
+    
+
+    
+
+    
 
     
 

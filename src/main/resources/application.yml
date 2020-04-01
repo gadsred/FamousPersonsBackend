@@ -1,6 +1,0 @@
-    app:
-        datasource:
-            jdbc-url:jdbc:mysql://localhost:3306/famous_person
-            username:root
-            password:''
-            pool-size:30
