@@ -24,6 +24,19 @@ public class Person {
 
     private  Date dob;
 
+    private String photoUrl;
+	public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPhotoUrl() {
+        return this.photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
     public Integer getId() {
         return this.id;
     }

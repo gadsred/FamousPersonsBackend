@@ -1,12 +1,12 @@
 package com.example.famous_persons.api;
 
 
-
 import com.example.famous_persons.model.Person;
 import com.example.famous_persons.service.PersonService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("api/v1/person")
 @RestController
+@RequestMapping("api/v1/person")
+@CrossOrigin(origins = "http://localhost:3000")
 public class PersonController {
 
     private final PersonService personService;
+   
 
     @Autowired
     public PersonController(PersonService personService) {
@@ -36,6 +38,13 @@ public class PersonController {
     @GetMapping
     public Iterable<Person> getAllPeople() {
         return personService.getAllPeople();
+    }
+
+
+    @GetMapping(path = "/search/{name}")
+    public Iterable<Person> findPersons(@PathVariable("name") String name){
+        
+		return personService.findPersons(name);
     }
 
     @GetMapping(path = "{id}")
